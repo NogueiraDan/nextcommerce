@@ -5,17 +5,11 @@ import Link from "next/link";
 export default function Home() {
   return (
     <main className={styles.main}>
-      <div className={styles.center}>
-        <Image
-          className={styles.logo}
-          src="/next.svg"
-          alt="Next.js Logo"
-          width={180}
-          height={37}
-        />
-        <h1>Bem vindo à DevStore</h1>
-        <Link href="/products">Explorar produtos</Link>
-      </div>
+      <h1>Bem vindo à DevStore</h1>
+      <h2>Comece agora a explorar!</h2>
+      <Link href="/products" className={styles.linkPLP}>
+        Explorar produtos
+      </Link>
     </main>
   );
 }
