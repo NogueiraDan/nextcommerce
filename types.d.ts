@@ -1,10 +1,10 @@
 type Product = {
     id: Number;
     title: string;
-    price: Number;
+    price: string;
     description: String;
     category: String,
-    image: String,
+    image: string,
     rating: {
       rate: Number;
       count: Number;

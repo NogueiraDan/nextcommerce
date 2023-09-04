@@ -25,7 +25,7 @@ export default async function Products() {
         {products.data.map((product: Product, index: any) => {
           return (
             <>
-              <ProductCard />
+              <ProductCard product={product}/>
             </>
           );
         })}
