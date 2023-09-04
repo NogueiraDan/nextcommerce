@@ -12,7 +12,6 @@ export default function Home() {
           alt="Next.js Logo"
           width={180}
           height={37}
-          priority
         />
         <h1>Bem vindo à DevStore</h1>
         <Link href="/products">Explorar produtos</Link>

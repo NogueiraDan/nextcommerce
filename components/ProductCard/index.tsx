@@ -7,10 +7,11 @@ type ProductProps = {
 };
 
 export default function ProductCard({ product }: ProductProps) {
+  
   return (
     <>
       <div className={styles.card}>
-        <Link href="/">
+        <Link href={`/products/${product.id}`}>
         <Image
           className={styles.logo}
           src={product.image}

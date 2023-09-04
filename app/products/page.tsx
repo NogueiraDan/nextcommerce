@@ -6,7 +6,7 @@ export default async function Products() {
   // Utilizando o utilitário para fazer a ponte e pegar os produtos
   const fetchData: Promise<any> = getAllProducts();
   const products = await fetchData;
-  console.log(products.data);
+  // console.log(products.data);
 
   return (
     <main className={styles.main}>
