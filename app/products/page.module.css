@@ -1,0 +1,22 @@
+.main {
+  min-height: 100vh;
+}
+
+.categories {
+  /* background-color: antiquewhite; */
+  display: flex;
+  justify-content: space-between;
+  padding: 20px 40px;
+}
+
+.linkCategories {
+  display: flex;
+  height: 100%;
+}
+
+.linkCategories p {
+  margin-right: 40px;
+  font-weight: 600;
+  cursor: pointer;
+
+}
