@@ -1,8 +1,8 @@
 import styles from "./page.module.css";
 import getAllProducts from "@/utils/getAllProducts";
+import ProductCard from "@/components/ProductCard";
 
 export default async function Products() {
-  
   // Utilizando o utilitário para fazer a ponte e pegar os produtos
   const fetchData: Promise<any> = getAllProducts();
   const products = await fetchData;
@@ -21,16 +21,15 @@ export default async function Products() {
           <p>Order by</p>
         </div>
       </div>
-      {products.data.map((product:Product, index:any) => {
+      <div className={styles.cardWrapper}>
+        {products.data.map((product: Product, index: any) => {
           return (
             <>
-              <p key={index}>
-                {product.title}
-              </p>
-              <br />
+              <ProductCard />
             </>
           );
         })}
+      </div>
     </main>
   );
 }
