@@ -1,10 +1,14 @@
 "use client";
-
+import { useState } from "react";
 import styles from "./header.module.css";
 import Image from "next/image";
 import Link from "next/link";
 
+import MiniCart from "../Cart";
+
 export default function Header() {
+  const [open,setOpen] = useState(false)
+
   return (
     <header className={styles.header}>
       <div className={styles.colLeft}>
@@ -36,7 +40,7 @@ export default function Header() {
         </div>
         <div
           className={styles.cartWrapper}
-          onClick={() => alert("Abriu o cart!")}
+          onClick={() => setOpen(!open)}
         >
           <Image
             src="/icon-cart.svg"
@@ -46,6 +50,8 @@ export default function Header() {
           />
           <p className={styles.cartNotification}>0</p>
         </div>
+        {open &&  <MiniCart setOpen={setOpen} open={open}/> }
+       
       </div>
     </header>
   );
