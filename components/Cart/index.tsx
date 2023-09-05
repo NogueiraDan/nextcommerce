@@ -1,9 +1,10 @@
-'use client'
 import React from "react";
 import styles from "./cart.module.css"
+import { useCart } from "@/context/cartContext";
 
 const Cart = ({open, setOpen}:any) => {
 
+  const {state} = useCart();
   return (
     <div className={styles.cart}>
       <div className={styles.cartHeader}>
@@ -11,11 +12,9 @@ const Cart = ({open, setOpen}:any) => {
       <span onClick={()=>setOpen(!open)}>Fechar</span>
       </div>
       <div className={styles.cartBody}>
-        <ul>
-          <li>Produto 1</li>
-          <li>Produto 2</li>
-          <li>Produto 3</li>
-        </ul>
+      {state.products.map((product) => (
+          <p key={product.id}>{product.name}</p>
+        ))}
       </div>
       <div>
         <span>SUBTOTAL</span>

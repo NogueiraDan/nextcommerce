@@ -1,47 +1,66 @@
-'use client'
-import Image from "next/image";
+"use client";
+import { useEffect, useState } from "react";
+import { addToCart, useCart } from "@/context/cartContext";
 import styles from "./page.module.css";
+import Image from "next/image";
 import getOneProduct from "@/utils/getOneProduct";
 import Link from "next/link";
 
-export default async function ProductDetails({ params }: { params: { id: string } }) {
+export default function ProductDetails({ params }: { params: { id: string } }) {
 
-  const fetchData: Promise<any> = getOneProduct(params.id);
-  const product = await fetchData;
-  console.log(product.data);
+
+  useEffect(() => {
+    const fetchData = getOneProduct(params.id);
+    fetchData
+      .then((product) => {
+        setProduct(product.data);
+      })
+      .catch((error) => {
+        console.log(error);
+      });
+  }, []);
+
+  const [product, setProduct] = useState<any>([]);
+  const { dispatch } = useCart();
+  const handleAddToCart = () => {
+    addToCart(dispatch, product);
+  };
 
   return (
     <div className={styles.main}>
       <div className={styles.colLeft}>
-      <p className={styles.voltar}>
-      <Image
-          className={styles.iconBack}
-          src="/icon-back.svg"
-          alt="Next.js Logo"
-          width={22}
-          height={22}
-        />
-        <Link href="/products">
-          Voltar
-        </Link>
-      </p>
-      <Image
+        <p className={styles.voltar}>
+          <Image
+            className={styles.iconBack}
+            src="/icon-back.svg"
+            alt="Imagem do produto"
+            width={22}
+            height={22}
+          />
+          <Link href="/products">Voltar</Link>
+        </p>
+        <Image
           className={styles.productImage}
-          src={product.data.image}
-          alt="Next.js Logo"
+          src={product.image}
+          alt="Product image"
           width={400}
           height={500}
         />
-
       </div>
       <div className={styles.colRight}>
-        <p className={styles.category}>{product.data.category}</p>
-        <h1>{product.data.title}</h1>
-        <p className={styles.price}>R$ {product.data.price}</p>
-        <p>*Frete de R$40,00 para todo o Brasil. Grátis para compras acima de R$900,00.</p>
+        <p className={styles.category}>{product.category}</p>
+        <h1>{product.title}</h1>
+        <p className={styles.price}>R$ {product.price}</p>
+        <p>
+          *Frete de R$40,00 para todo o Brasil. Grátis para compras acima de
+          R$900,00.
+        </p>
         <p className={styles.description}>Descrição</p>
-        <p className={styles.textDescription}>{product.data.description}</p>
-        <button className={styles.btnAddToCart} onClick={()=>alert("Adicionado ao Carrinho")}>Adicionar ao carrinho</button>
+        <p className={styles.textDescription}>{product.description}</p>
+        <button className={styles.btnAddToCart} onClick={handleAddToCart}>
+          {" "}
+          Adicionar ao carrinho
+        </button>
       </div>
     </div>
   );
