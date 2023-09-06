@@ -2,6 +2,7 @@ import React from "react";
 import styles from "./cart.module.css";
 import { useCart } from "@/context/cartContext";
 import Image from "next/image";
+import Link from "next/link";
 
 const Cart = ({ open, setOpen }: any) => {
   const { cart, removeFromCart, clearCart } = useCart();
@@ -59,8 +60,13 @@ const Cart = ({ open, setOpen }: any) => {
             </span>
             <span>"valor total"</span>
           </div>
-          <button className={styles.btnCheckout}>FINALIZAR A COMPRA</button>
-          <button className={styles.btnClearCart} onClick={clearCart}>ESVAZAIR O CARRINHO</button>
+          <Link href="/checkout">
+            <button className={styles.btnCheckout}>FINALIZAR A COMPRA</button>
+          </Link>
+
+          <button className={styles.btnClearCart} onClick={clearCart}>
+            ESVAZAIR O CARRINHO
+          </button>
         </>
       )}
       {cart.length === 0 && (
