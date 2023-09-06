@@ -28,10 +28,7 @@ export default function ProductDetails({ params }: { params: { id: string } }) {
     console.log("Carrinho atual:", cart);
   };
 
-  const handleClearCart = () => {
-    clearCart();
-  };
-
+  
   return (
     <div className={styles.main}>
       <div className={styles.colLeft}>
@@ -67,7 +64,6 @@ export default function ProductDetails({ params }: { params: { id: string } }) {
           {" "}
           Adicionar ao carrinho
         </button>
-        <span style={{cursor: "pointer"}} onClick={handleClearCart}>Clear Cart</span>
       </div>
     </div>
   );
