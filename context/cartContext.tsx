@@ -76,6 +76,7 @@ const CartProvider = ({ children }: CartProviderProps) => {
 
   const removeFromCart = (itemId: number) => {
     const updatedCart = cart.filter((item) => item.id !== itemId);
+    localStorage.setItem("cart", JSON.stringify(updatedCart));
     setCart(updatedCart);
   };
 
