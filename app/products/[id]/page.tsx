@@ -1,14 +1,12 @@
 "use client";
 import { useEffect, useState } from "react";
-import { addToCart, useCart } from "@/context/cartContext";
 import styles from "./page.module.css";
 import Image from "next/image";
 import getOneProduct from "@/utils/getOneProduct";
 import Link from "next/link";
+import { useCart } from "@/context/cartContext";
 
 export default function ProductDetails({ params }: { params: { id: string } }) {
-
-
   useEffect(() => {
     const fetchData = getOneProduct(params.id);
     fetchData
@@ -21,9 +19,16 @@ export default function ProductDetails({ params }: { params: { id: string } }) {
   }, []);
 
   const [product, setProduct] = useState<any>([]);
-  const { dispatch } = useCart();
+  const { addToCart, cart, clearCart } = useCart();
+
   const handleAddToCart = () => {
-    addToCart(dispatch, product);
+    // Chama a função addToCart com o produto que você deseja adicionar
+    addToCart(product);
+    console.log("Carrinho atual:", cart);
+  };
+
+  const handleClearCart = () => {
+    clearCart();
   };
 
   return (
@@ -43,7 +48,7 @@ export default function ProductDetails({ params }: { params: { id: string } }) {
           className={styles.productImage}
           src={product.image}
           alt="Product image"
-          width={400}
+          width={450}
           height={500}
         />
       </div>
@@ -61,6 +66,7 @@ export default function ProductDetails({ params }: { params: { id: string } }) {
           {" "}
           Adicionar ao carrinho
         </button>
+        <span style={{cursor: "pointer"}} onClick={handleClearCart}>Clear Cart</span>
       </div>
     </div>
   );

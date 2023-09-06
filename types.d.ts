@@ -9,6 +9,7 @@ type Product = {
     rate: Number;
     count: Number;
   };
+  quantity?: number
 };
 
 type RootState = {
