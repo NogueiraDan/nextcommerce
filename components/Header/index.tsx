@@ -3,11 +3,12 @@ import { useState } from "react";
 import styles from "./header.module.css";
 import Image from "next/image";
 import Link from "next/link";
-
+import { useCart } from "@/context/cartContext";
 import MiniCart from "../Cart";
 
 export default function Header() {
   const [open,setOpen] = useState(false)
+  const {cart} = useCart();
 
   return (
     <header className={styles.header}>
@@ -48,7 +49,7 @@ export default function Header() {
             width={30}
             height={30}
           />
-          <p className={styles.cartNotification}>0</p>
+          <p className={styles.cartNotification}>{cart.length}</p>
         </div>
         {open &&  <MiniCart setOpen={setOpen} open={open}/> }
        

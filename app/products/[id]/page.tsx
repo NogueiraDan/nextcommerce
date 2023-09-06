@@ -24,6 +24,7 @@ export default function ProductDetails({ params }: { params: { id: string } }) {
   const handleAddToCart = () => {
     // Chama a função addToCart com o produto que você deseja adicionar
     addToCart(product);
+    alert("Produto adicionado ao carrinho!")
     console.log("Carrinho atual:", cart);
   };
 
