@@ -81,6 +81,7 @@ const CartProvider = ({ children }: CartProviderProps) => {
   };
 
   const clearCart = () => {
+    alert("Tem certeza que deseja esvaziar seu carrinho?")
     setCart([]);
     localStorage.removeItem("cart");
   };

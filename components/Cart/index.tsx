@@ -59,8 +59,8 @@ const Cart = ({ open, setOpen }: any) => {
             </span>
             <span>"valor total"</span>
           </div>
-          <button className={styles.btnCheckout}>PROCEED TO CHECKOUT</button>
-          {/* <span style={{cursor: "pointer"}} onClick={clearCart}>Reset Cart</span> */}
+          <button className={styles.btnCheckout}>FINALIZAR A COMPRA</button>
+          <button className={styles.btnClearCart} onClick={clearCart}>ESVAZAIR O CARRINHO</button>
         </>
       )}
       {cart.length === 0 && (
