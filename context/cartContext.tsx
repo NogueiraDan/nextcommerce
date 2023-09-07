@@ -18,7 +18,7 @@ type CartItem = {
 
 type CartContextType = {
   cart: CartItem[];
-  cartTotalPrice: number | string;
+  cartTotalPrice: any;
   addToCart: (item: CartItem) => void;
   removeFromCart: (itemId: number) => void;
   incrementQuantity: (itemId: number) => void;
@@ -54,7 +54,7 @@ const CartProvider = ({ children }: CartProviderProps) => {
   }, []);
 
   const [cart, setCart] = useState<CartItem[]>([]);
-  const [cartTotalPrice, setCartTotalPrice] = useState<number |undefined>();
+  const [cartTotalPrice, setCartTotalPrice] = useState();
 
   useEffect(() => {
     let itemPrice;
@@ -75,7 +75,7 @@ const CartProvider = ({ children }: CartProviderProps) => {
 
     if (existingItemIndex !== -1) {
       // Se o item já existe no carrinho, atualize a quantidade
-      const updatedCart = [...cart];
+      const updatedCart:any = [...cart];
       updatedCart[existingItemIndex].quantity+= 1;
       setCart(updatedCart);
 
@@ -104,7 +104,7 @@ const CartProvider = ({ children }: CartProviderProps) => {
 
   const incrementQuantity = (itemId: number) => {
     const itemIndex = cart.findIndex((cartItem) => cartItem.id === itemId);
-    const updatedCart = [...cart];
+    const updatedCart:any = [...cart];
     updatedCart[itemIndex].quantity += 1;
     setCart(updatedCart);
     localStorage.setItem("cart", JSON.stringify(updatedCart));
@@ -112,7 +112,7 @@ const CartProvider = ({ children }: CartProviderProps) => {
 
   const decrementQuantity = (itemId: number) => {
     const itemIndex = cart.findIndex((cartItem) => cartItem.id === itemId);
-    const updatedCart = [...cart];
+    const updatedCart:any = [...cart];
     if (updatedCart[itemIndex].quantity == 1) {
       return;
     }
