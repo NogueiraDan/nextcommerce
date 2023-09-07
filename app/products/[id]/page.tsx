@@ -52,7 +52,7 @@ export default function ProductDetails({ params }: { params: { id: string } }) {
       </div>
       <div className={styles.colRight}>
         <p className={styles.category}>{product.category}</p>
-        <h1>{product.title}</h1>
+        <h1 className={styles.productName}>{product.title}</h1>
         <p className={styles.price}>R$ {product.price}</p>
         <p>
           *Frete de R$40,00 para todo o Brasil. Grátis para compras acima de

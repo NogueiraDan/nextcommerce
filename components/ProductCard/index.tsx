@@ -11,7 +11,7 @@ export default function ProductCard({ product }: ProductProps) {
   return (
     <>
       <div className={styles.card}>
-        <Link href={`/products/${product.id}`}>
+        <Link href={`/products/${product.id}`} className={styles.cardLink}>
         <Image
           className={styles.logo}
           src={product.image}

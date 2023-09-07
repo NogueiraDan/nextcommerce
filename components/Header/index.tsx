@@ -7,8 +7,8 @@ import { useCart } from "@/context/cartContext";
 import MiniCart from "../Cart";
 
 export default function Header() {
-  const [open,setOpen] = useState(false)
-  const {cart} = useCart();
+  const [open, setOpen] = useState(false);
+  const { cart } = useCart();
 
   return (
     <header className={styles.header}>
@@ -23,6 +23,7 @@ export default function Header() {
           />
         </Link>
       </div>
+
       <div className={styles.colRight}>
         <div className={styles.searchWrapper}>
           <input
@@ -39,10 +40,7 @@ export default function Header() {
             onClick={() => alert("Buscou!")}
           />
         </div>
-        <div
-          className={styles.cartWrapper}
-          onClick={() => setOpen(!open)}
-        >
+        <div className={styles.cartWrapper} onClick={() => setOpen(!open)}>
           <Image
             src="/icon-cart.svg"
             alt="Next.js Logo"
@@ -51,8 +49,7 @@ export default function Header() {
           />
           <p className={styles.cartNotification}>{cart.length}</p>
         </div>
-        {open &&  <MiniCart setOpen={setOpen} open={open}/> }
-       
+        {open && <MiniCart setOpen={setOpen} open={open} />}
       </div>
     </header>
   );
