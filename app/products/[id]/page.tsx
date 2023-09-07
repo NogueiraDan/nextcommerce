@@ -11,7 +11,7 @@ export default function ProductDetails({ params }: { params: { id: string } }) {
     const fetchData = getOneProduct(params.id);
     fetchData
       .then((product) => {
-        setProduct(product.data);
+        setProduct(product);
       })
       .catch((error) => {
         console.log(error);
@@ -19,7 +19,7 @@ export default function ProductDetails({ params }: { params: { id: string } }) {
   }, []);
 
   const [product, setProduct] = useState<any>([]);
-  const { addToCart, cart, clearCart } = useCart();
+  const { addToCart, cart } = useCart();
 
   const handleAddToCart = () => {
     // Chama a função addToCart com o produto que você deseja adicionar
