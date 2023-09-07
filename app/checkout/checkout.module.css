@@ -6,6 +6,22 @@
   display: flex;
 }
 
+
+.checkoutEmpty{
+  display: flex;
+  margin: 0 auto;
+  flex-direction: column;
+  align-items: center;
+}
+
+.checkoutEmptyLink{
+  padding: 10px;
+  border-radius: 8px;
+  background: var(--shapes-light-88-gray, #d0d0d7);
+  margin-top: 20px
+}
+
+
 .colLeft {
   width: 65%;
   padding-left: 6%;

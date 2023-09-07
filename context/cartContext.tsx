@@ -18,6 +18,7 @@ type CartItem = {
 
 type CartContextType = {
   cart: CartItem[];
+  cartTotalPrice: number | undefined;
   addToCart: (item: CartItem) => void;
   removeFromCart: (itemId: number) => void;
   incrementQuantity: (itemId: number) => void;
@@ -53,28 +54,42 @@ const CartProvider = ({ children }: CartProviderProps) => {
   }, []);
 
   const [cart, setCart] = useState<CartItem[]>([]);
+  const [cartTotalPrice, setCartTotalPrice] = useState<number |undefined>();
+
+  useEffect(() => {
+    let itemPrice;
+    let totalPrice = 0;
+    let totalPriceFloat;
+    cart.forEach((item) => {
+      itemPrice = parseFloat(item.price) * item.quantity;
+      totalPrice = totalPrice + itemPrice;
+      totalPriceFloat = totalPrice.toFixed(2) 
+    });
+    setCartTotalPrice(totalPriceFloat);
+  }, [cart]);
 
   const addToCart = (item: CartItem) => {
-    const existingItemIndex = cart.findIndex((cartItem) => cartItem.id === item.id);
-  
+    const existingItemIndex = cart.findIndex(
+      (cartItem) => cartItem.id === item.id
+    );
+
     if (existingItemIndex !== -1) {
       // Se o item já existe no carrinho, atualize a quantidade
       const updatedCart = [...cart];
       updatedCart[existingItemIndex].quantity += 1;
       setCart(updatedCart);
-  
+
       // Atualiza o localStorage com o novo carrinho após setCart
       localStorage.setItem("cart", JSON.stringify(updatedCart));
     } else {
       // Se o item não existe no carrinho, adicione-o com quantidade 1
       const updatedCart = [...cart, { ...item, quantity: 1 }];
       setCart(updatedCart);
-  
+
       // Atualiza o localStorage com o novo carrinho após setCart
       localStorage.setItem("cart", JSON.stringify(updatedCart));
     }
   };
-  
 
   const removeFromCart = (itemId: number) => {
     const updatedCart = cart.filter((item) => item.id !== itemId);
@@ -90,7 +105,7 @@ const CartProvider = ({ children }: CartProviderProps) => {
   const incrementQuantity = (itemId: number) => {
     const itemIndex = cart.findIndex((cartItem) => cartItem.id === itemId);
     const updatedCart = [...cart];
-    updatedCart[itemIndex].quantity+=1;
+    updatedCart[itemIndex].quantity += 1;
     setCart(updatedCart);
     localStorage.setItem("cart", JSON.stringify(updatedCart));
   };
@@ -98,17 +113,20 @@ const CartProvider = ({ children }: CartProviderProps) => {
   const decrementQuantity = (itemId: number) => {
     const itemIndex = cart.findIndex((cartItem) => cartItem.id === itemId);
     const updatedCart = [...cart];
-    if(updatedCart[itemIndex].quantity==1){
+    if (updatedCart[itemIndex].quantity == 1) {
       return;
     }
-    updatedCart[itemIndex].quantity-=1;
+    updatedCart[itemIndex].quantity -= 1;
     setCart(updatedCart);
     localStorage.setItem("cart", JSON.stringify(updatedCart));
   };
 
+
+
   // Criando o objeto de contexto
   const cartContextValue: CartContextType = {
     cart,
+    cartTotalPrice,
     addToCart,
     removeFromCart,
     incrementQuantity,
