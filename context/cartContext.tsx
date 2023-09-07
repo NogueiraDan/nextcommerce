@@ -3,22 +3,22 @@ import React, { createContext, useContext, useState, useEffect } from "react";
 
 // Definindo o tipo do contexto
 type CartItem = {
-  id: Number;
+  id: number;
   title: string;
   price: string;
   description: String;
   category: String;
   image: string;
   rating: {
-    rate: Number;
-    count: Number;
+    rate: number;
+    count: number;
   };
-  quantity?: number;
+  quantity?: number | undefined;
 };
 
 type CartContextType = {
   cart: CartItem[];
-  cartTotalPrice: number | undefined;
+  cartTotalPrice: number | string;
   addToCart: (item: CartItem) => void;
   removeFromCart: (itemId: number) => void;
   incrementQuantity: (itemId: number) => void;
@@ -61,7 +61,7 @@ const CartProvider = ({ children }: CartProviderProps) => {
     let totalPrice = 0;
     let totalPriceFloat;
     cart.forEach((item) => {
-      itemPrice = parseFloat(item.price) * item.quantity;
+      itemPrice = parseFloat(item.price) * (item.quantity ?? 0);
       totalPrice = totalPrice + itemPrice;
       totalPriceFloat = totalPrice.toFixed(2) 
     });
@@ -76,7 +76,7 @@ const CartProvider = ({ children }: CartProviderProps) => {
     if (existingItemIndex !== -1) {
       // Se o item já existe no carrinho, atualize a quantidade
       const updatedCart = [...cart];
-      updatedCart[existingItemIndex].quantity += 1;
+      updatedCart[existingItemIndex].quantity+= 1;
       setCart(updatedCart);
 
       // Atualiza o localStorage com o novo carrinho após setCart

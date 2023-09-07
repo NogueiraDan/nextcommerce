@@ -5,7 +5,14 @@ import Image from "next/image";
 import Link from "next/link";
 
 const Cart = ({ open, setOpen }: any) => {
-  const { cart, removeFromCart, clearCart } = useCart();
+  const {
+    cart,
+    removeFromCart,
+    clearCart,
+    cartTotalPrice,
+    decrementQuantity,
+    incrementQuantity,
+  } = useCart();
 
   const handleRemoveItem = (itemId: any) => {
     removeFromCart(itemId);
@@ -49,6 +56,21 @@ const Cart = ({ open, setOpen }: any) => {
                       width={20}
                       height={20}
                     />
+                    <div className={styles.checkoutProductQuantity}>
+                      <span
+                        className={styles.quantitySelector}
+                        onClick={() => decrementQuantity(item.id)}
+                      >
+                        -
+                      </span>
+                      <p>{item.quantity}</p>
+                      <span
+                        className={styles.quantitySelector}
+                        onClick={() => incrementQuantity(item.id)}
+                      >
+                        +
+                      </span>
+                    </div>
                   </div>
                 </>
               );
@@ -58,7 +80,7 @@ const Cart = ({ open, setOpen }: any) => {
             <span>
               <strong>TOTAL: </strong>
             </span>
-            <span>"valor total"</span>
+            <span>{cartTotalPrice}</span>
           </div>
           <Link href="/checkout">
             <button className={styles.btnCheckout}>FINALIZAR A COMPRA</button>

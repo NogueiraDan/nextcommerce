@@ -15,7 +15,7 @@ const Checkout = () => {
   } = useCart();
   const total = cart.length;
   const shipping = 40;
-  const subtotal = parseFloat(cartTotalPrice) + shipping;
+  const subtotal = parseFloat(cartTotalPrice as string) + shipping;
 
   return (
     <div className={styles.checkoutWrapper}>
@@ -81,7 +81,7 @@ const Checkout = () => {
                         width={20}
                         height={20}
                       />
-                      <p className={styles.productPrice}>R${item.price}</p>
+                      <p className={styles.productPrice}>R${item.price}/unidade</p>
                     </div>
                   </div>
                 </>
