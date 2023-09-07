@@ -18,10 +18,12 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={saira.className}>
-        <CartProvider>
-          <Header />
-          {children}
-        </CartProvider>
+        <main>
+          <CartProvider>
+            <Header />
+            {children}
+          </CartProvider>
+        </main>
       </body>
     </html>
   );

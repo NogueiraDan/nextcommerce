@@ -20,6 +20,8 @@ type CartContextType = {
   cart: CartItem[];
   addToCart: (item: CartItem) => void;
   removeFromCart: (itemId: number) => void;
+  incrementQuantity: (itemId: number) => void;
+  decrementQuantity: (itemId: number) => void;
   clearCart: () => void;
 };
 
@@ -85,11 +87,32 @@ const CartProvider = ({ children }: CartProviderProps) => {
     localStorage.removeItem("cart");
   };
 
+  const incrementQuantity = (itemId: number) => {
+    const itemIndex = cart.findIndex((cartItem) => cartItem.id === itemId);
+    const updatedCart = [...cart];
+    updatedCart[itemIndex].quantity+=1;
+    setCart(updatedCart);
+    localStorage.setItem("cart", JSON.stringify(updatedCart));
+  };
+
+  const decrementQuantity = (itemId: number) => {
+    const itemIndex = cart.findIndex((cartItem) => cartItem.id === itemId);
+    const updatedCart = [...cart];
+    if(updatedCart[itemIndex].quantity==1){
+      return;
+    }
+    updatedCart[itemIndex].quantity-=1;
+    setCart(updatedCart);
+    localStorage.setItem("cart", JSON.stringify(updatedCart));
+  };
+
   // Criando o objeto de contexto
   const cartContextValue: CartContextType = {
     cart,
     addToCart,
     removeFromCart,
+    incrementQuantity,
+    decrementQuantity,
     clearCart,
   };
 

@@ -6,7 +6,7 @@ import Image from "next/image";
 import Link from "next/link";
 
 const Checkout = () => {
-  const { cart, removeFromCart, clearCart } = useCart();
+  const { cart, removeFromCart, clearCart, incrementQuantity, decrementQuantity } = useCart();
   const total = cart.length;
 
   return (
@@ -39,9 +39,9 @@ const Checkout = () => {
                   <p className={styles.productDescription}> {item.description} </p>
 
                   <div className={styles.checkoutProductQuantity}>
-                    <span className={styles.quantitySelector}>-</span>
+                    <span className={styles.quantitySelector} onClick={()=>decrementQuantity(item.id)}>-</span>
                     <p>{item.quantity}</p>
-                    <span className={styles.quantitySelector}>+</span>
+                    <span className={styles.quantitySelector} onClick={()=>incrementQuantity(item.id)}>+</span>
                   </div>
                 </div>
                 <div className={styles.checkoutProductActions}>
