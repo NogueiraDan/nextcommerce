@@ -522,7 +522,7 @@ __webpack_require__.r(__webpack_exports__);
   
 
   /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ((props) => {
-    const imageData = {"type":"image/x-icon","sizes":"16x16"}
+    const imageData = {"type":"image/x-icon","sizes":"256x256"}
     const imageUrl = (0,next_dist_lib_metadata_get_metadata_route__WEBPACK_IMPORTED_MODULE_0__.fillMetadataSegment)(".", props.params, "favicon.ico")
 
     return [{

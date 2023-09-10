@@ -1,17 +1,22 @@
 .main {
   display: flex;
   flex-direction: column;
-  /* justify-content: center; */
   align-items: center;
   min-height: 100vh;
   padding-top: 50px;
 }
 
-
-
 .linkPLP {
   padding: 10px;
   border-radius: 8px;
   background: var(--shapes-light-88-gray, #d0d0d7);
-  margin-top: 10px
+  margin-top: 10px;
+}
+
+/* MEDIAS QUERIES */
+
+@media (min-width: 200px) and (max-width: 1200px) {
+  .title, .subTitle {
+   text-align: center;
+  }
 }

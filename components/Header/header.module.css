@@ -58,7 +58,18 @@
 }
 
 /* MEDIAS QUERIES */
-@media (min-width: 200px) and (max-width: 1200px) {
+@media(min-width: 200px) and (max-width: 350px){
+  .header{
+    padding: 10px;
+  }
+  .searchWrapper {
+    display: none;
+  }
+  .colRight{
+    justify-content: end;
+  }
+}
+@media (min-width: 351px) and (max-width: 1200px) {
   .searchWrapper {
     display: none;
   }

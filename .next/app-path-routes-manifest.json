@@ -1,12 +1,12 @@
 {
-  "/page": "/",
   "/favicon.ico/route": "/favicon.ico",
+  "/page": "/",
   "/products/page": "/products",
   "/api/categories/route": "/api/categories",
-  "/api/hello/route": "/api/hello",
   "/api/products/route": "/api/products",
+  "/api/hello/route": "/api/hello",
   "/products/[id]/page": "/products/[id]",
-  "/checkout/page": "/checkout",
   "/api/category/[category]/route": "/api/category/[category]",
-  "/api/products/[id]/route": "/api/products/[id]"
+  "/api/products/[id]/route": "/api/products/[id]",
+  "/checkout/page": "/checkout"
 }

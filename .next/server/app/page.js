@@ -346,7 +346,9 @@ Promise.resolve(/* import() eager */).then(__webpack_require__.t.bind(__webpack_
 // Exports
 module.exports = {
 	"main": "page_main__nw1Wk",
-	"linkPLP": "page_linkPLP__meUlV"
+	"linkPLP": "page_linkPLP__meUlV",
+	"title": "page_title__po7na",
+	"subTitle": "page_subTitle__6FkmS"
 };
 
 
@@ -374,9 +376,11 @@ function Home() {
         className: (_page_module_css__WEBPACK_IMPORTED_MODULE_2___default().main),
         children: [
             /*#__PURE__*/ react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx("h1", {
+                className: (_page_module_css__WEBPACK_IMPORTED_MODULE_2___default().title),
                 children: "Bem vindo \xe0 DevStore"
             }),
             /*#__PURE__*/ react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx("h2", {
+                className: (_page_module_css__WEBPACK_IMPORTED_MODULE_2___default().subtitle),
                 children: "Comece agora a explorar!"
             }),
             /*#__PURE__*/ react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx((next_link__WEBPACK_IMPORTED_MODULE_1___default()), {

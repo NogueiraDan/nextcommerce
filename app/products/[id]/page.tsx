@@ -42,24 +42,26 @@ export default function ProductDetails({ params }: { params: { id: string } }) {
           />
           <Link href="/products">Voltar</Link>
         </p>
+        <div className={styles.productImage}>
         <Image
-          className={styles.productImage}
           src={product.image}
           alt="Product image"
           width={450}
-          height={500}
+          height={450}
         />
+        </div>
       </div>
       <div className={styles.colRight}>
         <p className={styles.category}>{product.category}</p>
         <h1 className={styles.productName}>{product.title}</h1>
         <p className={styles.price}>R$ {product.price}</p>
-        <p>
-          *Frete de R$40,00 para todo o Brasil. Grátis para compras acima de
-          R$900,00.
-        </p>
+     
         <p className={styles.description}>Descrição</p>
         <p className={styles.textDescription}>{product.description}</p>
+        <p className={styles.textShipping}>
+          *Frete de R$40,00 para todo o Brasil. Grátis para compras acima de
+          R$200,00.
+        </p>
         <button className={styles.btnAddToCart} onClick={handleAddToCart}>
           {" "}
           Adicionar ao carrinho

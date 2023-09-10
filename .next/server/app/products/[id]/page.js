@@ -440,12 +440,14 @@ function ProductDetails({ params }) {
                             })
                         ]
                     }),
-                    /*#__PURE__*/ jsx_runtime_.jsx((image_default()), {
+                    /*#__PURE__*/ jsx_runtime_.jsx("div", {
                         className: (page_module_default()).productImage,
-                        src: product.image,
-                        alt: "Product image",
-                        width: 450,
-                        height: 500
+                        children: /*#__PURE__*/ jsx_runtime_.jsx((image_default()), {
+                            src: product.image,
+                            alt: "Product image",
+                            width: 450,
+                            height: 450
+                        })
                     })
                 ]
             }),
@@ -468,15 +470,16 @@ function ProductDetails({ params }) {
                         ]
                     }),
                     /*#__PURE__*/ jsx_runtime_.jsx("p", {
-                        children: "*Frete de R$40,00 para todo o Brasil. Gr\xe1tis para compras acima de R$900,00."
-                    }),
-                    /*#__PURE__*/ jsx_runtime_.jsx("p", {
                         className: (page_module_default()).description,
                         children: "Descri\xe7\xe3o"
                     }),
                     /*#__PURE__*/ jsx_runtime_.jsx("p", {
                         className: (page_module_default()).textDescription,
                         children: product.description
+                    }),
+                    /*#__PURE__*/ jsx_runtime_.jsx("p", {
+                        className: (page_module_default()).textShipping,
+                        children: "*Frete de R$40,00 para todo o Brasil. Gr\xe1tis para compras acima de R$200,00."
                     }),
                     /*#__PURE__*/ (0,jsx_runtime_.jsxs)("button", {
                         className: (page_module_default()).btnAddToCart,
@@ -509,8 +512,10 @@ module.exports = {
 	"price": "page_price__Hp1pS",
 	"description": "page_description__WiGtt",
 	"textDescription": "page_textDescription__8P5Nh",
+	"textShipping": "page_textShipping___KF8s",
 	"btnAddToCart": "page_btnAddToCart__SevQ1",
-	"productName": "page_productName__I_wEh"
+	"productName": "page_productName__I_wEh",
+	"productImage": "page_productImage__o0eGl"
 };
 
 
