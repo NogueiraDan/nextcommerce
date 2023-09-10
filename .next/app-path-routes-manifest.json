@@ -3,10 +3,10 @@
   "/page": "/",
   "/products/page": "/products",
   "/api/categories/route": "/api/categories",
-  "/api/products/route": "/api/products",
   "/api/hello/route": "/api/hello",
+  "/api/products/route": "/api/products",
   "/products/[id]/page": "/products/[id]",
+  "/checkout/page": "/checkout",
   "/api/category/[category]/route": "/api/category/[category]",
-  "/api/products/[id]/route": "/api/products/[id]",
-  "/checkout/page": "/checkout"
+  "/api/products/[id]/route": "/api/products/[id]"
 }

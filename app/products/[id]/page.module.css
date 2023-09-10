@@ -62,9 +62,6 @@
   margin-bottom: 30px;;
 }
 
-.textShipping{
-  text-align: center;
-}
 
 .btnAddToCart {
   margin-top: 90px;
@@ -100,7 +97,7 @@
     align-items: center;
   }
 
-  .productName, .textDescription{
+  .productName, .textDescription, .textShipping{
     text-align: center;
   }
   .productImage img{

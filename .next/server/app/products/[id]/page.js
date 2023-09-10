@@ -512,9 +512,9 @@ module.exports = {
 	"price": "page_price__Hp1pS",
 	"description": "page_description__WiGtt",
 	"textDescription": "page_textDescription__8P5Nh",
-	"textShipping": "page_textShipping___KF8s",
 	"btnAddToCart": "page_btnAddToCart__SevQ1",
 	"productName": "page_productName__I_wEh",
+	"textShipping": "page_textShipping___KF8s",
 	"productImage": "page_productImage__o0eGl"
 };
 
